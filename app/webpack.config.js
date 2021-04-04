@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: "./app/index.js",
+  entry: "./app/index",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 5000,
@@ -19,6 +19,16 @@ module.exports = {
   optimization: {
     runtimeChunk: false
   },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"]
+  },
+  module: {
+    rules: [
+      // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+      { test: /\.tsx?$/, loader: "ts-loader" }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./app/index.html",
@@ -26,7 +36,7 @@ module.exports = {
     new ModuleFederationPlugin({
         shared: {
           auth: {
-            import: path.resolve(__dirname, '../libs/auth.js'),
+            import: path.resolve(__dirname, '../libs/auth.ts'),
             requiredVersion: false,
             eager: true,
           }
