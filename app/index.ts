@@ -1,5 +1,8 @@
 import { loadRemoteEntry, loadRemoteModule } from './common';
 import auth from 'auth';
+import hasValue from 'has-value';
+
+window['hasValue'] = hasValue;
 
 function loadPaymentsMfe() {
   loadRemoteModule({

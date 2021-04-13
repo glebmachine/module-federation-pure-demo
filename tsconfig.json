@@ -16,7 +16,7 @@
       "dom"
     ],
     "paths": {
-      "auth": ["libs/auth.ts"]
+      "auth": ["libs/auth/auth.ts"]
     }
   }
 }

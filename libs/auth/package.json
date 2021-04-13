@@ -1,0 +1,7 @@
+{
+  "name": "auth",
+  "version": "0.0.1",
+  "dependencies": {
+    "has-value": "0.0.1"
+  }
+}

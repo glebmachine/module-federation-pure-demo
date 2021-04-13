@@ -35,11 +35,13 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
         shared: {
+          "has-value": { eager: true, singleton: true, strictVersion: true },
           auth: {
-            import: path.resolve(__dirname, '../libs/auth.ts'),
+            import: path.resolve(__dirname, '../libs/auth/auth.ts'),
             requiredVersion: false,
+            strictVersion: true,
             eager: true,
-          }
+          },
         }
     }),
   ],
